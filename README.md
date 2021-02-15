@@ -1,1 +1,1 @@
-# TerminalConfigFiles
+# config-files
