@@ -1,0 +1,6 @@
+#!/bin/bash
+xset r rate 140 40;
+xrandr --output HDMI-0 --auto --left-of DVI-D-0
+xrandr --output DVI-I-0 --auto --right-of DVI-D-0
+slstatus 2>&1 > /dev/null &
+exec dwm
