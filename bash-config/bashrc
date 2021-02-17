@@ -1,5 +1,7 @@
 #!/bin/bash
 PS1="\[\033[38;2;255;255;0m\]\[\033[93m\][\T][\u@\h:\w]> \[$(tput sgr0)\]"
+alias vi="vim"
+alias r="ranger"
 alias m="make"
 alias mt="make tc"
 alias smi="sudo make install"
