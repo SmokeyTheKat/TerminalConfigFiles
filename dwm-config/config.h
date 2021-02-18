@@ -110,17 +110,23 @@ void setcurfullscreen(const Arg* args)
 	setfullscreen(selmon->sel, !(selmon->sel->isfullscreen));
 }
 
+void takescreenshot(const Arg* args)
+{
+	system("DXWDSS=$(date +%Y:%m:%d_%H:%M:%S) && xwd > ~/Pictures/SCREENSHOT_$(echo \"$DXWDSS\").xwd && convert ~/Pictures/SCREENSHOT_$(echo \"$DXWDSS\").xwd ~/Pictures/SCREENSHOT_$(echo \"$DXWDSS\").png && rm ~/Pictures/SCREENSHOT_$(echo \"$DXWDSS\").xwd && qview ~/Pictures/SCREENSHOT_$(echo \"$DXWDSS\").png &");
+}
+
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_white, "-sb", col_gray2, "-sf", col_white, NULL };
 static const char *termcmd[]  = { "konsole", NULL };
-static const char *surfcmd[]  = { "surf", "duckduckgo.com" };
+static const char *surfcmd[]  = { "surf", "duckduckgo.com", NULL };
 static const char *volupcmd[]  = { "amixer", "sset", "'Master'", "10%+", NULL };
 static const char *voldowncmd[]  = { "amixer", "sset", "'Master'", "10%-", NULL };
 
 static Key keys[] = {
 	/* modifier                     key            function           argument */
 	{ MODKEY,                       XK_p,          spawn,             {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_p,          takescreenshot,    {.i = 0 } },
 	{ MODKEY|ShiftMask,             XK_Return,     spawn,             {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_backslash,  spawn,             {.v = surfcmd } },
 	{ MODKEY|ShiftMask,             XK_x,          blankscreen,       {.i = 0 } },
