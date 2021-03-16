@@ -1,3 +1,4 @@
+set backspace=2
 syntax on
 set nu rnu
 colorscheme delek

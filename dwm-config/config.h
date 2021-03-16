@@ -118,8 +118,8 @@ void takescreenshot(const Arg* args)
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_white, "-sb", col_gray2, "-sf", col_white, NULL };
-static const char *termcmd[]  = { "konsole", NULL };
-static const char *surfcmd[]  = { "konsole", "-e", "vifm", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
+static const char *surfcmd[]  = { "alacritty", "-e", "ranger", NULL };
 static const char *volupcmd[]  = { "amixer", "sset", "'Master'", "10%+", NULL };
 static const char *voldowncmd[]  = { "amixer", "sset", "'Master'", "10%-", NULL };
 
