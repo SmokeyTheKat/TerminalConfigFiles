@@ -6,6 +6,24 @@ if [ "$EUID" -ne 0 ]
 	then PS1="\[$(tput setaf 11)\][\T][\u@\h:\w]> \[$(tput sgr0)\]"
 	else PS1="\[$(tput setaf 12)\][\T][root@\h:\w]> \[$(tput sgr0)\]"
 fi
+
+alias cfdwm="vim ~/Programs/dwm/config.h"
+alias mcfdwm="cd ~/Programs/dwm/ && make && sudo make install"
+alias cfdmenu="vim ~/Programs/dmeun/config.h"
+alias mcfdmenu="cd ~/Programs/dmenu/ && make && sudo make install"
+alias cfsls="vim ~/Programs/slstatus/config.h"
+alias mcfsls="cd ~/Programs/slstatus/ && make && sudo make install"
+alias cfalac="vim ~/.config/alacritty/alacritty.yml"
+alias cfbash="vim ~/.bashrc"
+alias cfxinit="vim ~/.xinitrc"
+
+alias gs="git status"
+alias ga="git add *"
+alias gc="git commit"
+alias gp="git push"
+alias gac="ga && gc"
+alias gacp="ga && gc && gp"
+
 alias vi="vim"
 alias r="ranger"
 alias qv="qview"
@@ -18,5 +36,3 @@ alias la="ls -A"
 alias ll="ls -alF"
 alias ls="ls --color=auto"
 alias wine='PULSE_LATENCY_MSEC=60 wine'
-
-neofetch
