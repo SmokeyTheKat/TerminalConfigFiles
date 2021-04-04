@@ -1,7 +1,11 @@
 #!/bin/bash
+export PATH=~/opt/cross:$PATH
+export PATH=~/bin:$PATH
+export PATH=~/.local/bin:$PATH
 shopt -s autocd
 set -o vi
 HISTSIZE= HISTFILESIZE=
+
 if [ "$EUID" -ne 0 ]
 	then PS1="\[$(tput setaf 11)\][\T][\u@\h:\w]> \[$(tput sgr0)\]"
 	else PS1="\[$(tput setaf 12)\][\T][root@\h:\w]> \[$(tput sgr0)\]"
@@ -30,9 +34,12 @@ alias qv="qview"
 alias m="make"
 alias mt="make tc"
 alias smi="sudo make install"
+alias mi="make install"
 alias msmi="make && sudo make install"
 alias l="ls -CF"
 alias la="ls -A"
 alias ll="ls -alF"
 alias ls="ls --color=auto"
 alias wine='PULSE_LATENCY_MSEC=60 wine'
+
+minfo
