@@ -7,9 +7,10 @@ set -o vi
 HISTSIZE= HISTFILESIZE=
 
 if [ "$EUID" -ne 0 ]
-	then PS1="\[$(tput setaf 11)\][\T][\u@\h:\w]> \[$(tput sgr0)\]"
-	else PS1="\[$(tput setaf 12)\][\T][root@\h:\w]> \[$(tput sgr0)\]"
+	then PS1="\[$(tput setaf 11)\][\w]> \[$(tput sgr0)\]"
+	else PS1="\[$(tput setaf 12)\][\w]> \[$(tput sgr0)\]"
 fi
+
 
 alias cfdwm="vim ~/Programs/dwm/config.h"
 alias mcfdwm="cd ~/Programs/dwm/ && make && sudo make install"
@@ -43,3 +44,4 @@ alias ls="ls --color=auto"
 alias wine='PULSE_LATENCY_MSEC=60 wine'
 
 minfo
+source "$HOME/.cargo/env"
